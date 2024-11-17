@@ -2,17 +2,37 @@
 import merge from 'lodash.merge';
 import { AstroSeo } from '@astrolib/seo';
 
-import type { Props as AstroSeoProps } from '@astrolib/seo';
+// Remove the problematic import and define the types inline
+interface Props {
+  title?: string;
+  ignoreTitleTemplate?: boolean;
+  canonical?: string;
+  robots?: {
+    index?: boolean;
+    follow?: boolean;
+  };
+  description?: string;
+  openGraph?: {
+    url?: string;
+    site_name?: string;
+    images?: {
+      url: string;
+      width: number;
+      height: number;
+    }[];
+    locale?: string;
+    type?: string;
+  };
+  twitter?: {
+    handle?: string;
+    site?: string;
+    cardType?: string;
+  };
+}
 
 import { SITE, METADATA, I18N } from 'astrowind:config';
-import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
-
 import { adaptOpenGraphImages } from '~/utils/images';
-
-export interface Props extends MetaData {
-  dontUseTitleTemplate?: boolean;
-}
 
 const {
   title,
@@ -24,7 +44,7 @@ const {
   twitter = {},
 } = Astro.props;
 
-const seoProps: AstroSeoProps = merge(
+const seoProps = merge(
   {
     title: '',
     titleTemplate: '%s',
