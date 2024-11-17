@@ -1,8 +1,10 @@
 ---
 import merge from 'lodash.merge';
 import { AstroSeo } from '@astrolib/seo';
+import { SITE, METADATA, I18N } from 'astrowind:config';
+import { getCanonical } from '~/utils/permalinks';
+import { adaptOpenGraphImages } from '~/utils/images';
 
-// Remove the problematic import and define the types inline
 interface Props {
   title?: string;
   ignoreTitleTemplate?: boolean;
@@ -29,10 +31,6 @@ interface Props {
     cardType?: string;
   };
 }
-
-import { SITE, METADATA, I18N } from 'astrowind:config';
-import { getCanonical } from '~/utils/permalinks';
-import { adaptOpenGraphImages } from '~/utils/images';
 
 const {
   title,
