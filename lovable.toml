@@ -9,3 +9,6 @@ build = "npm run build"
 test = ""
 lint = ""
 format = ""
+
+[dev-server]
+port = 4321
