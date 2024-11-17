@@ -1,4 +1,16 @@
 declare module '@astrolib/seo' {
+  export interface OpenGraph {
+    url?: string;
+    site_name?: string;
+    images?: Array<{
+      url: string;
+      width?: number;
+      height?: number;
+    }>;
+    locale?: string;
+    type?: string;
+  }
+
   export interface AstroSeoProps {
     title?: string;
     titleTemplate?: string;
@@ -6,17 +18,7 @@ declare module '@astrolib/seo' {
     noindex?: boolean;
     nofollow?: boolean;
     description?: string;
-    openGraph?: {
-      url?: string;
-      site_name?: string;
-      images?: Array<{
-        url: string;
-        width: number;
-        height: number;
-      }>;
-      locale?: string;
-      type?: string;
-    };
+    openGraph?: OpenGraph;
     twitter?: {
       handle?: string;
       site?: string;
