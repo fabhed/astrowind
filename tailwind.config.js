@@ -1,4 +1,4 @@
-import animate from "tailwindcss-animate";
+import tailwindcss_animate from "tailwindcss-animate";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -75,5 +75,5 @@ export default {
       },
     },
   },
-  plugins: [animate],
+  plugins: [tailwindcss_animate],
 };

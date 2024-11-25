@@ -26,6 +26,5 @@ declare module '@astrolib/seo' {
     };
   }
 
-  // Add this to ignore the Astro component import error
   export const AstroSeo: (props: AstroSeoProps) => any;
 }
